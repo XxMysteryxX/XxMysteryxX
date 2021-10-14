@@ -1,0 +1,35 @@
+#include <iostream>
+#include <fstream>
+int main()
+{
+	std::ofstream file;
+	file.open("hello.txt");
+	if (file.is_open())
+	{
+		std::cout << "The file is open you can start writting" << std::endl;
+	}
+	std::vector<int> vec;
+	int min, max;
+	std::cout << "Enter the first a number for the range" << std::endl;
+	std::cin >> min;
+	std::cout << "Enter the second number for the range" << std::endl;
+	std::cin >> max;
+	std::cout << std::endl;
+	if (min > max)
+	{
+		int temp = min;
+		min = max;
+		max = temp;
+	}
+		for (auto p = 1; p <= max * min; p++)
+		{
+			file << p <<'\t';
+			if ((p % max) == 0)
+			{
+				file << std::endl;
+			}
+		}
+
+	file.close();
+}
+
